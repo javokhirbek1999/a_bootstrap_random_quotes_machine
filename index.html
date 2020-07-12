@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Machine - Javokhirbek Khaydaraliev</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script>
+      const QUOTEBANK = [
+        {
+          quote:
+            "Whenever you find yourself on the side of the majority, it is time to pause and reflect.",
+          author: "Mark Twain",
+        },
+        {
+          quote:
+            "If you don’t value your time, neither will others. Stop giving away your time and talents. Value what you know & start charging for it.",
+          author: "Kim Garst",
+        },
+        {
+          quote:
+            "The successful warrior is the average man, with laser-like focus.",
+          author: "Bruce Lee",
+        },
+        {
+       quote:
+       "Life isn’t about getting and having, it’s about giving and being.",
+       author:"Kevin Kruse",
+       },
+       {
+       quote:
+       "Whatever the mind of man can conceive and believe, it can achieve.",
+       author:"Napoleon Hill"},
+       {
+       quote:"Strive not to be a success, but rather to be of value.",
+       author:"Albert Einstein"},
+       {
+       quote:"Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.",
+       author:"Robert Frost"},
+      ];
+      window.onload = init;
+      function init() {
+        generateQuote();
+      }
+
+      function generateQuote() {
+        let quoteSize = QUOTEBANK.length;
+        let randomIndex = Math.floor(Math.random() * quoteSize);
+        let randomQuoteData = QUOTEBANK[randomIndex];
+        let twitterLink =
+          "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=%22";
+        //Add the Quote
+        let quoteInApiFormat = randomQuoteData.quote.replace(/ /g, "%20");
+        twitterLink +=
+          "Life%20is%20what%20we%20make%20it%2C%20always%20has%20been%2C%20always%20will%20be.%22%20";
+        //Add the author
+        twitterLink += "Grandma%20Moses";
+
+        document.getElementById("tweet-quote").href = twitterLink;
+        document.getElementById("text").innerText = randomQuoteData.quote;
+        document.getElementById("author").innerText = randomQuoteData.author;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row py-5">
+        <div class="col-md-8 offset-md-2">
+    <wrapper id="quote-box">
+      <div class="card">
+        <div class="card-header text-center">
+          Random Quote Machine
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><div id="text"></div></h5>
+          <p class="card-text">
+            <div id="author"></div>
+          </p>
+          <button id="new-quote" onClick="generateQuote();" class="btn btn-block btn-success">
+            New Quote
+          </button>
+          <a href="#" id="tweet-quote" target="_blank" class="btn btn-block btn-primary"
+          >Tweet</a
+        >
+        </div>
+      </div>
+    </wrapper>
+        </div>
+    </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
